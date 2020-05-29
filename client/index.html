@@ -22,6 +22,23 @@
 <script src="/node_modules/underscore/underscore.js"></script>
 <script src="/js/swimTeam.js"></script>
 <script src="/js/keypressHandler.js"></script>
+<script>
+  const serverUrl = 'http://127.0.0.1:3000';
+  const swimFetcher = (data) => {
+    $.ajax({
+      type: 'GET',
+      url: `${serverUrl}/random`,
+      success: (data) => {
+        //console.log server response
+        console.log('Data from swimFetcher: ', data);
+        SwimTeam.move(data);
+      }
+    })
+  }
+  $(document).ready(function () {
+    setInterval(swimFetcher, 3000)
+  })
+</script>
 
 </html>
 

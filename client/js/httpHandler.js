@@ -1,12 +1,19 @@
 (function() {
 
   const serverUrl = 'http://127.0.0.1:3000';
+  const swimFetcher = (data) => {
+    $.ajax({
+      type: 'GET',
+      url: `${serverUrl}/random`,
+      success: (data) => {
+        //console.log server response
+        console.log('Data from swimFetcher: ', data);
+        SwimTeam.move(data);
+      }
+    })
+  }
+  setInterval(swimFetcher, 3000);
 
-
-
-  //
-  // TODO: build the swim command fetcher here
-  //
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!

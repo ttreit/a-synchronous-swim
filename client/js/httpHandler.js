@@ -12,7 +12,6 @@
       }
     })
   }
-  setInterval(swimFetcher, 3000);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -56,3 +55,22 @@
   });
 
 })();
+
+
+//Scrap
+
+  //setInterval(swimFetcher, 3000);
+
+  // const swimSender = (direction) => {
+  //   $.ajax({
+  //     type: 'POST',
+  //     url: `${serverUrl}/move`,
+  //     data: JSON.stringify(direction),
+  //     success: (data) => {
+  //       console.log('Data from swimSender: ', data);
+  //     }
+  //   })
+  // }
+
+  // swimSender('up');
+  // swimSender('right');

@@ -37,7 +37,6 @@ describe('server responses', () => {
       expect(res._responseCode).to.equal(200);
       expect(res._ended).to.equal(true);
       expect(['up', 'down', 'left', 'right'].includes(res._data.toString())).to.equal(true);
-
     done();
   });
 

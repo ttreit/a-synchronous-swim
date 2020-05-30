@@ -37,8 +37,24 @@ module.exports.router = (req, res, next = ()=>{}) => {
         let backgroundPresent = fs.access('../img/background.jpg', fs.constants.F_OK, (err) => {
           return err ? false : true;
         } )
+        if (backgroundPresent) {
+          //res.writeHead(200, headers);
+        } else {
+          //res.writeHead(404, headers);
+        }
       }
   }
   res.end();
   next(); // invoke next() at the end of a request to help with testing!
 };
+
+
+
+
+// case '/background':
+//       let backgroundPresent = fs.access('../img/background.jpg', fs.constants.F_OK);
+//       if (backgroundPresent) {
+//         res.writeHead(200, headers);
+//       } else {
+//         res.writeHead(404, headers);
+//       }

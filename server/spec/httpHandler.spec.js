@@ -51,14 +51,14 @@ describe('server responses', () => {
     });
   });
 
-  xit('should respond with 200 to a GET request for a present background image', (done) => {
-    // write your test here
+  // xit('should respond with 200 to a GET request for a present background image', (done) => {
+  //   // write your test here
 
-    // if (present) {
-      // return 200
-    }
-    done();
-  });
+  //   // if (present) {
+  //     // return 200
+  //   }
+  //   done();
+  // });
 
   var postTestFile = path.join('.', 'spec', 'water-lg.jpg');
 

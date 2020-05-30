@@ -38,17 +38,15 @@ module.exports.router = (req, res, next = ()=>{}) => {
           return err ? false : true;
         } )
         if (backgroundPresent) {
-          //res.writeHead(200, headers);
+          res.writeHead(200, headers);
         } else {
-          //res.writeHead(404, headers);
+          res.writeHead(404, headers);
         }
       }
   }
   res.end();
   next(); // invoke next() at the end of a request to help with testing!
 };
-
-
 
 
 // case '/background':

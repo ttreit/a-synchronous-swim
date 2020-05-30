@@ -5,7 +5,7 @@ const multipart = require('./multipartUtils');
 const messages = require('./messageQueue');
 
 // Path for the background image ///////////////////////
-module.exports.backgroundImageFile = path.join('.', 'background.jpg');
+module.exports.backgroundImageFile = path.join('.', '');
 ////////////////////////////////////////////////////////
 
 let messageQueue = null;
@@ -18,10 +18,10 @@ module.exports.initialize = (queue) => {
 
 module.exports.router = (req, res, next = ()=>{}) => {
   console.log('Serving request type ' + req.method + ' for url ' + req.url);
-  res.writeHead(200, headers);
   if (req.method === 'GET') {
     switch (req.url) {
       case '/random' :
+        res.writeHead(200, headers);
         let message = messages.dequeue();
         if (message === undefined) {
           const moves = ['up', 'down', 'right', 'left'];
@@ -33,6 +33,10 @@ module.exports.router = (req, res, next = ()=>{}) => {
       //default :
         //WHAT GOES HERE??
         //res.write('Did not receive a valid type.')
+      case '/background' :
+        let backgroundPresent = fs.access('../img/background.jpg', fs.constants.F_OK, (err) => {
+          return err ? false : true;
+        } )
       }
   }
   res.end();

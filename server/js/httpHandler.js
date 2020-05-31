@@ -33,8 +33,13 @@ module.exports.router = (req, res, next = ()=>{}) => {
       case '/background.jpg' :
         let backgroundImagePath = module.exports.backgroundImageFile;
         if (fs.existsSync(backgroundImagePath)) {
-          res.writeHead(200, headers);
-          // res.write();
+          let file = fs.createReadStream(backgroundImagePath);
+          file.on('open', function() {
+            res.setHeader('Content-type', 'image/jpeg')
+            res.writeHead(200, headers);
+            file.pipe(res);
+          })
+          // res.write(backgroundImagePath);  //send image not string
         } else {
           res.writeHead(404, headers);
         }
